@@ -1,0 +1,59 @@
+name: Generate Release Notes
+
+on:
+  push:
+    tags:
+      - '*' # Kích hoạt mỗi khi có tag mới được đẩy lên kho từ xa
+  workflow_dispatch: # Cho phép kích hoạt thủ công
+
+env:
+  # Cấu hình AI, nhớ đặt trong GitHub Secrets
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  OPENAI_API_BASE_URL: ${{ secrets.OPENAI_API_BASE_URL }}
+  OPENAI_MODEL: gpt-4.1-mini # Có thể đổi mô hình theo nhu cầu
+
+jobs:
+  generate_and_push:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Cho phép ghi tệp vào kho
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch all tags and history for accurate git log
+          fetch-depth: 0 
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        run: pip install openai
+
+      - name: Run release notes generator script
+        id: generate_notes # Thêm id để tham chiếu đầu ra của script
+        run: python scripts/release_notes_generator.py
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }} # Truyền thông tin kho cho script Python
+
+      - name: Commit and push release notes
+        # Chỉ thực thi khi đã sinh ra tệp
+        if: success() && steps.generate_notes.outputs.release_notes_file != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Lấy tên tag và tên tệp do script xuất ra
+          TAG_NAME="${{ steps.generate_notes.outputs.tag_name }}"
+          RELEASE_FILE="${{ steps.generate_notes.outputs.release_notes_file }}"
+          
+          echo "Committing release notes for tag: $TAG_NAME"
+          echo "File path: $RELEASE_FILE"
+
+          git add "$RELEASE_FILE"
+          git commit -m "docs(release): Add release notes for $TAG_NAME" || echo "No changes to commit"
+          git push origin HEAD:main

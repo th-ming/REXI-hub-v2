@@ -1,0 +1,11 @@
+Nếu bạn đang đọc tệp này thì chứng tỏ dự án này được phát triển lại dựa trên REXI-hub v2; nếu bạn đọc tệp này tại /rexi-hub-v2 thì website đó cũng dựa trên REXI-hub v2.
+
+REXI-hub v2 là một cổng API LLM mã nguồn mở thông minh, được chuẩn bị cho mục đích thương mại và tải đồng thời lớn. Dự án mở theo giấy phép GPL v3, kèm điều khoản bổ sung.  
+Truy cập mã nguồn: https://github.com/rexi-hub-v2/rexi-hub-v2
+
+---
+
+If you are reading this, it means the project is a secondary development based on REXI-hub v2. If you are reading this file under /rexi-hub-v2, then that site is also based on REXI-hub v2.
+
+REXI-hub v2 is an intelligent open-source LLM API gateway, built for commercial use and high concurrency. This project is open-sourced under the GPL v3 license, with additional terms applicable.
+Source code available at: https://github.com/rexi-hub-v2/rexi-hub-v2

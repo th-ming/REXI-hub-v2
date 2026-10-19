@@ -1,0 +1,75 @@
+
+$prefix: 'semi';
+
+/* sizing */
+$height-control-small: 24px; // Chiều cao mục form - cỡ nhỏ
+$height-control-default: 32px; // Chiều cao mục form - cỡ mặc định
+$height-control-large: 40px; // Chiều cao mục form - cỡ lớn
+$border-thickness: 0; // Độ dày viền - không
+$border-thickness-control: 1px; // Độ dày viền - trạng thái mặc định (checkbox...)
+$border-thickness-control-focus: 1px; // Độ dày viền - trạng thái focus (checkbox...)
+
+$width-icon-extra-small: 8px; // Kích thước icon - siêu nhỏ
+$width-icon-small: 12px; // Kích thước icon - nhỏ
+$width-icon-medium: 16px; // Kích thước icon - vừa
+$width-icon-large: 20px; // Kích thước icon - lớn
+$width-icon-extra-large: 24px; // Kích thước icon - siêu lớn
+
+/* spacing */
+$spacing-none: 0; // Khoảng cách - không
+$spacing-super-tight: 2px; // Khoảng cách - padding/margin cực chặt
+$spacing-extra-tight: 4px; // Khoảng cách - padding/margin rất chặt
+$spacing-tight: 8px; // Khoảng cách - padding/margin chặt
+$spacing-base-tight: 12px; // Khoảng cách - padding/margin mặc định (hơi chặt)
+$spacing-base: 16px; // Khoảng cách - padding/margin mặc định
+$spacing-base-loose: 20px; // Khoảng cách - padding/margin mặc định (hơi rộng)
+$spacing-loose: 24px; // Khoảng cách - padding/margin rộng
+$spacing-extra-loose: 32px; // Khoảng cách - padding/margin rất rộng
+$spacing-super-loose: 40px; // Khoảng cách - padding/margin cực rộng
+
+// z-index
+$z-portal: 1; // Slot trừu tượng, áp dụng cho mọi component chưa được tùy biến riêng
+$z-affix: 10; // z-index cho phần tử trang có vị trí cố định
+$z-backtop: 10; // z-index của nút về đầu trang
+$z-badge: 10; // badge z-index
+$z-modal: 1000; // modal z-index
+$z-modal-mask: 1000; // z-index lớp phủ modal
+
+$z-toast: 1010; // z-index của component toast
+$z-notification: 1010; // z-index của component notification
+$z-popover: 1030; // z-index của component popover
+$z-dropdown: 1050; // z-index của component dropdown
+$z-tooltip: 1060; // z-index của component tooltip
+$z-image_preview: 1070; // z-index lớp xem trước của component Image
+$z-image_preview_header: 1; // z-index phần header trong lớp xem trước của component Image
+// $z-avatar-default: 100;
+$z-image_preview: 1070; // z-index lớp xem trước của component Image
+$z-image_preview_header: 1; // z-index phần header trong lớp xem trước của component Image
+
+// z-index của phần tử đang kéo, cần cao hơn z-index của mọi component lớp nổi
+$z-transfer_right_item_drag_item_move: 2000; // z-index của phần tử đang kéo ở panel phải của transfer
+$z-tagInput_drag_item_move: 2000; // z-index của phần tử đang kéo trong ô nhập thẻ
+$z-resizable_handler: 2000; // z-index của handler trong component resizable   
+
+
+// font
+
+
+$font-family-regular: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif; // Font dự phòng có sẵn của semi
+$font-size-small: 12px; // Cỡ chữ văn bản nhỏ
+$font-size-regular:  14px; // Cỡ chữ văn bản thường
+
+$font-size-header-6:  16px; // Cỡ chữ tiêu đề cấp 6
+$font-size-header-5: 16px; // Cỡ chữ tiêu đề cấp 5
+$font-size-header-4: 18px; // Cỡ chữ tiêu đề cấp 4
+$font-size-header-3: 20px; // Cỡ chữ tiêu đề cấp 3
+$font-size-header-2: 24px; // Cỡ chữ tiêu đề cấp 2
+$font-size-header-1: 30px; // Cỡ chữ tiêu đề cấp 1
+
+
+$font-weight-light: 200; // Độ đậm chữ - nhẹ
+$font-weight-regular: 400; // Độ đậm chữ - thường
+$font-weight-bold: 600; // Độ đậm chữ - in đậm
+        
+
+
