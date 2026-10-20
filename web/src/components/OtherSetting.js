@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Tethys Plex
+Copyright (c) 2025 REXI-hub team
 
 This file is part of REXI-hub v2.
 
@@ -235,15 +235,8 @@ const OtherSetting = () => {
         CheckUpdate: true,
       }));
       // Use a CORS proxy to avoid direct cross-origin requests to GitHub API
-      // Option 1: Use a public CORS proxy service
-      // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      // const res = await API.get(
-      //   `${proxyUrl}https://api.github.com/repos/Calcium-Ion/new-api/releases/latest`,
-      // );
-
-      // Option 2: Use the JSON proxy approach which often works better with GitHub API
       const res = await fetch(
-        'https://api.github.com/repos/REXI-hub v2/REXI-hub v2/releases/latest',
+        'https://api.github.com/repos/th-ming/REXI-hub-v2/releases/latest',
         {
           headers: {
             Accept: 'application/json',

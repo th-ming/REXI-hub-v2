@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Tethys Plex
+// Copyright (c) 2025 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //
@@ -34,9 +34,9 @@ var (
 )
 
 func printHelp() {
-	fmt.Println("New API " + Version + " - All in one API service for OpenAI API.")
-	fmt.Println("Copyright (C) 2023 JustSong. All rights reserved.")
-	fmt.Println("GitHub: https://github.com/songquanpeng/rexi-hub-v2")
+	fmt.Println("REXI-hub v2 " + Version + " - All in one API service for OpenAI API.")
+	fmt.Println("Copyright (C) 2025 REXI-hub team. All rights reserved.")
+	fmt.Println("GitHub: https://github.com/th-ming/REXI-hub-v2")
 	fmt.Println("Usage: rexi-hub-v2 [--port <port>] [--log-dir <log directory>] [--version] [--help]")
 }
 

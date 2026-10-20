@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Tethys Plex
+Copyright (c) 2025 REXI-hub team
 
 This file is part of REXI-hub v2.
 
@@ -59,11 +59,7 @@ const About = () => {
             </Layout.Header>
             <Layout.Content>
               <p>{t('可在设置页面设置关于内容，支持 HTML & Markdown')}</p>
-              <p>REXI-hub v2</p>
-              <p>
-                {t('NewAPI © 2023 CalciumIon | 基于 One API v0.5.4 © 2023')}
-                {t('JustSong。')}
-              </p>
+              <p>REXI-hub v2 © 2025</p>
               <p>
                 {t('本项目根据MIT许可证授权，需在遵守Apache-2.0协议的前提下使用。')}
               </p>

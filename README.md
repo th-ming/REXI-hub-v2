@@ -26,7 +26,6 @@ REXI-hub v2 là cổng tổng hợp API AI hỗ trợ nhiều kênh (Azure, Open
 - Đa ngôn ngữ: Tiếng Việt, 中文, English
 - Giao diện tối/sáng
 - Hỗ trợ Rerank, Realtime, Claude Messages, Midjourney, Suno
-- Tương thích One API / New API
 
 ## Triển khai
 
@@ -77,8 +76,6 @@ Server mặc định chạy tại `http://localhost:3000`.
 ## Giấy phép
 
 **GPL v3** — xem [LICENSE](./LICENSE).
-
-Dựa trên [New API](https://github.com/QuantumNous/new-api) (giấy phép gốc Apache 2.0 giữ tại [LICENSE.new-api](./LICENSE.new-api)), fork từ [Veloera](https://github.com/Veloera/Veloera).
 
 ---
 

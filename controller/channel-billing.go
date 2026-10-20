@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Tethys Plex
+// Copyright (c) 2025 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //
@@ -31,7 +31,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// https://github.com/songquanpeng/rexi-hub-v2/issues/79
+// billing edge case reference
 
 type OpenAISubscriptionResponse struct {
 	Object             string  `json:"object"`

@@ -244,7 +244,6 @@
   "保存首页内容": "Lưu nội dung trang chủ",
   "在此输入新的关于内容，支持 Markdown & HTML 代码。如果输入的是一个链接，则会使用该链接作为 iframe 的 src 属性，这允许你设置任意网页作为关于页面": "Nhập nội dung mới vào đây, hỗ trợ Markdown",
   "保存关于": "Lưu về",
-  "移除 One API 的版权标识必须首先获得授权，项目维护需要花费大量精力，如果本项目对你有意义，请主动支持本项目": "Việc xóa nhãn bản quyền One API trước tiên phải được ủy quyền. Bảo trì dự án đòi hỏi rất nhiều nỗ lực. Nếu dự án này có ý nghĩa với bạn, hãy tích cực ủng hộ nó.",
   "页脚": "Chân trang",
   "在此输入新的页脚，留空则使用默认页脚，支持 HTML 代码": "Nhập footer mới vào đây, để trống để sử dụng footer mặc định, hỗ trợ code HTML.",
   "设置页脚": "Đặt chân trang",
@@ -1111,7 +1110,6 @@
   "请至少选择一个模型！": "Vui lòng chọn ít nhất một mô hình!",
   "提交失败，请勿重复提交！": "Gửi không thành công, vui lòng không gửi lại!",
   "某些模型已存在！": "Một số mô hình đã tồn tại!",
-  "如果你对接的是上游One API或者New API等转发项目，请使用OpenAI类型，不要使用此类型，除非你知道你在做什么。": "Nếu bạn đang kết nối với các dự án chuyển tiếp One API hoặc API mới ngược dòng, vui lòng sử dụng loại OpenAI. Không sử dụng loại này trừ khi bạn biết bạn đang làm gì.",
   "完整的 Base URL，支持变量{model}": "URL cơ sở hoàn chỉnh, hỗ trợ biến {model}",
   "请输入完整的URL，例如：https://api.openai.com/v1/chat/completions": "Vui lòng nhập URL đầy đủ, ví dụ: https://api.openai.com/v1/chat/completions",
   "此项可选，用于通过自定义API地址来进行 API 调用，末尾不要带/v1和/": "Tùy chọn cho lệnh gọi API thông qua địa chỉ API tùy chỉnh, không thêm /v1 và / vào cuối",
@@ -1773,7 +1771,6 @@
   "Gemini思考适配设置": "Cài đặt thích ứng tư duy của Song Tử",
   "IP地址": "Địa chỉ IP",
   "IP白名单": "danh sách trắng IP",
-  "NewAPI © 2023 CalciumIon | 基于 One API v0.5.4 © 2023": "NewAPI (c) 2023 CanxiIon | dựa trên Một API v0.5.4 (c) 2023",
   "OIDC 身份验证": "Xác thực OIDC",
   "Ping间隔（秒）": "Khoảng thời gian Ping (giây)",
   "REXI-hub项目仓库地址：": "URL kho lưu trữ trung tâm REXI:",
@@ -1782,7 +1779,7 @@
   "开启后，将定期发送ping数据保持连接活跃": "Khi được bật, dữ liệu ping sẽ được gửi định kỳ để duy trì kết nối",
   "开启后，当空回复或上游报错时自动重试": "Khi được bật, các yêu cầu sẽ tự động được thử lại khi có phản hồi trống hoặc lỗi ngược dòng",
   "显示名": "Tên hiển thị",
-  "本项目根据MIT许可证授权，需在遵守Apache-2.0协议的前提下使用。": "Dự án này được cấp phép theo giấy phép MIT, được sử dụng theo giấy phép Apache-2.0.",
+  "本项目根据MIT许可证授权，需在遵守Apache-2.0协议的前提下使用。": "Dự án này được cấp phép theo GPL-3.0.",
   "正在跳转......": "Chuyển hướng......",
   "请选择可以使用该渠道的分组，留空则不更改": "Chọn các nhóm có thể sử dụng kênh này, để trống để không thay đổi",
   "请选择该渠道所支持的模型，留空则不更改": "Chọn các dòng máy được kênh này hỗ trợ, để trống để không thay đổi",
@@ -1831,7 +1828,6 @@
   "GitHub": "GitHub",
   "ID": "ID",
   "IDC Flare": "IDC bùng phát",
-  "JustSong。": "JustSong.",
   "LinuxDO": "LinuxDO",
   "OIDC": "OIDC",
   "OR": "HOẶC",
@@ -2084,5 +2080,6 @@
   "Binding successful!": "Liên kết thành công!",
   "无法获取预设倍率数据（公共资产服务不可用），请稍后重试": "Không tải được dữ liệu preset hệ số (dịch vụ Public Assets không khả dụng), vui lòng thử lại sau",
   "获取模型价格失败，请刷新重试": "Không tải được giá mô hình, vui lòng tải lại trang",
-  "请输入您的用户名 {{username}} 以确认删除": "Nhập tên tài khoản {{username}} để xác nhận xoá"
+  "请输入您的用户名 {{username}} 以确认删除": "Nhập tên tài khoản {{username}} để xác nhận xoá",
+  "如果你对接的是上游转发项目，请使用OpenAI类型，不要使用此类型，除非你知道你在做什么。": "Nếu bạn đang kết nối với một dự án chuyển tiếp tương thích, vui lòng sử dụng loại OpenAI. Không dùng loại này trừ khi bạn biết mình đang làm gì."
 }

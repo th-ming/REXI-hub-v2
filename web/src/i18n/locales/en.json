@@ -244,7 +244,6 @@
   "保存首页内容": "Save Home Page Content",
   "在此输入新的关于内容，支持 Markdown & HTML 代码。如果输入的是一个链接，则会使用该链接作为 iframe 的 src 属性，这允许你设置任意网页作为关于页面": "Enter new about content here, support Markdown",
   "保存关于": "Save About",
-  "移除 One API 的版权标识必须首先获得授权，项目维护需要花费大量精力，如果本项目对你有意义，请主动支持本项目": "Removal of One API copyright mark must first be authorized. Project maintenance requires a lot of effort. If this project is meaningful to you, please actively support it.",
   "页脚": "Footer",
   "在此输入新的页脚，留空则使用默认页脚，支持 HTML 代码": "Enter the new footer here, leave blank to use the default footer, supports HTML code.",
   "设置页脚": "Set Footer",
@@ -1111,7 +1110,6 @@
   "请至少选择一个模型！": "Please select at least one model!",
   "提交失败，请勿重复提交！": "Submission failed, please do not submit repeatedly!",
   "某些模型已存在！": "Some models already exist!",
-  "如果你对接的是上游One API或者New API等转发项目，请使用OpenAI类型，不要使用此类型，除非你知道你在做什么。": "If you are connecting to upstream One API or New API forwarding projects, please use OpenAI type. Do not use this type unless you know what you are doing.",
   "完整的 Base URL，支持变量{model}": "Complete Base URL, supports variable {model}",
   "请输入完整的URL，例如：https://api.openai.com/v1/chat/completions": "Please enter complete URL, e.g.: https://api.openai.com/v1/chat/completions",
   "此项可选，用于通过自定义API地址来进行 API 调用，末尾不要带/v1和/": "Optional for API calls through custom API address, do not add /v1 and / at the end",
@@ -1773,7 +1771,6 @@
   "Gemini思考适配设置": "Gemini thinking adaptation settings",
   "IP地址": "IP address",
   "IP白名单": "IP whitelist",
-  "NewAPI © 2023 CalciumIon | 基于 One API v0.5.4 © 2023": "NewAPI (c) 2023 CalciumIon | based on One API v0.5.4 (c) 2023",
   "OIDC 身份验证": "OIDC authentication",
   "Ping间隔（秒）": "Ping interval (seconds)",
   "REXI-hub项目仓库地址：": "REXI-hub repository URL:",
@@ -1782,7 +1779,7 @@
   "开启后，将定期发送ping数据保持连接活跃": "When enabled, ping data is sent periodically to keep the connection alive",
   "开启后，当空回复或上游报错时自动重试": "When enabled, requests are automatically retried on empty replies or upstream errors",
   "显示名": "Display name",
-  "本项目根据MIT许可证授权，需在遵守Apache-2.0协议的前提下使用。": "This project is licensed under the MIT license, to be used in compliance with the Apache-2.0 license.",
+  "本项目根据MIT许可证授权，需在遵守Apache-2.0协议的前提下使用。": "This project is licensed under GPL-3.0.",
   "正在跳转......": "Redirecting......",
   "请选择可以使用该渠道的分组，留空则不更改": "Select the groups that can use this channel, leave blank to keep unchanged",
   "请选择该渠道所支持的模型，留空则不更改": "Select the models supported by this channel, leave blank to keep unchanged",
@@ -1831,7 +1828,6 @@
   "GitHub": "GitHub",
   "ID": "ID",
   "IDC Flare": "IDC Flare",
-  "JustSong。": "JustSong.",
   "LinuxDO": "LinuxDO",
   "OIDC": "OIDC",
   "OR": "OR",
@@ -2083,5 +2079,6 @@
   "Not logged in or session expired, please log in again": "Not logged in or session expired, please log in again",
   "无法获取预设倍率数据（公共资产服务不可用），请稍后重试": "Failed to fetch preset ratio data (Public Assets service is unavailable), please try again later",
   "获取模型价格失败，请刷新重试": "Failed to fetch model pricing, please refresh and try again",
-  "请输入您的用户名 {{username}} 以确认删除": "Enter your username {{username}} to confirm deletion"
+  "请输入您的用户名 {{username}} 以确认删除": "Enter your username {{username}} to confirm deletion",
+  "如果你对接的是上游转发项目，请使用OpenAI类型，不要使用此类型，除非你知道你在做什么。": "If you are connecting to an upstream compatible forwarding project, please use OpenAI type. Do not use this type unless you know what you are doing."
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Tethys Plex
+Copyright (c) 2025 REXI-hub team
 
 This file is part of REXI-hub v2.
 
@@ -664,13 +664,7 @@ const SystemSetting = () => {
                 <Form.Section text={i18n.t('Proxy Settings')}>
                   <Text>
                     {t('（支持')}{' '}
-                    <a
-                      href='https://github.com/Calcium-Ion/new-api-worker'
-                      target='_blank'
-                      rel='noreferrer'
-                    >
-                      new-api-worker
-                    </a>
+                    <Text code>Cloudflare Workers</Text>
                     {t('）')}
                   </Text>
                   <Row

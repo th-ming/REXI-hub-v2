@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Tethys Plex
+// Copyright (c) 2025 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //
@@ -25,7 +25,7 @@ import (
 	"rexi-hub-v2/common"
 )
 
-// from songquanpeng/rexi-hub-v2
+// default model ratios
 const (
 	USD2RMB = 7.3 // Tạm định 1 USD = 7.3 Nhân dân tệ
 	USD     = 500 // $0.002 = 1 -> $1 = 500

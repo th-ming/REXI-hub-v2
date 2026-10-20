@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Tethys Plex
+// Copyright (c) 2025 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //
@@ -118,7 +118,7 @@ func chooseDB(envName string) (*gorm.DB, error) {
 			})
 		}
 		if strings.HasPrefix(dsn, "local") {
-			// Check and migrate from one-api.db to rexi-hub-v2.db
+			// Check and migrate from legacy db to rexi-hub-v2.db
 			oldPaths := []string{"./one-api.db", "./data/one-api.db"}
 			newPaths := []string{"./rexi-hub-v2.db", "./data/rexi-hub-v2.db"}
 

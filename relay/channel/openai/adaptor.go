@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Tethys Plex
+// Copyright (c) 2025 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //
@@ -116,7 +116,7 @@ func (a *Adaptor) GetRequestURL(info *relaycommon.RelayInfo) (string, error) {
 		if info.ChannelCreateTime < constant2.AzureNoRemoveDotTime {
 			model_ = strings.Replace(model_, ".", "", -1)
 		}
-		// https://github.com/songquanpeng/rexi-hub-v2/issues/67
+		// azure deployment path
 		requestURL = fmt.Sprintf("/openai/deployments/%s/%s", model_, task)
 		if info.RelayMode == constant.RelayModeRealtime {
 			requestURL = fmt.Sprintf("/openai/realtime?deployment=%s&api-version=%s", model_, apiVersion)

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Tethys Plex
+// Copyright (c) 2025 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //
@@ -116,7 +116,7 @@ func getImageToken(info *relaycommon.RelayInfo, imageUrl *dto.MessageImageUrl, m
 		return 3 * baseTokens, nil
 	}
 
-	// Đồng bộ logic tính phí hình ảnh của One API
+	// Tính phí hình ảnh theo chuẩn OpenAI
 	if imageUrl.Detail == "auto" || imageUrl.Detail == "" {
 		imageUrl.Detail = "high"
 	}
