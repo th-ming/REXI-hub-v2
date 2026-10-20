@@ -1269,7 +1269,7 @@ Example:
               </div>
               <div style={{ marginTop: 20 }}>
                 <Input
-                  placeholder={i18n.t('Nhập tên tài khoản {{username}} để xác nhận xoá', {
+                  placeholder={i18n.t('请输入您的用户名 {{username}} 以确认删除', {
                     username: userState?.user?.username,
                   })}
                   name='self_account_deletion_confirmation'

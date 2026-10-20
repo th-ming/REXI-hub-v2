@@ -78,7 +78,7 @@ Server mặc định chạy tại `http://localhost:3000`.
 
 **GPL v3** — xem [LICENSE](./LICENSE).
 
-Dựa trên [New API](https://github.com/QuantumNous/new-api) (Apache 2.0), fork từ [Veloera](https://github.com/Veloera/Veloera).
+Dựa trên [New API](https://github.com/QuantumNous/new-api) (giấy phép gốc Apache 2.0 giữ tại [LICENSE.new-api](./LICENSE.new-api)), fork từ [Veloera](https://github.com/Veloera/Veloera).
 
 ---
 
