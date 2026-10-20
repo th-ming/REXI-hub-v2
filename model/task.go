@@ -1,4 +1,4 @@
-// Copyright (c) 2025 REXI-hub team
+// Copyright (c) 2026 REXI-hub team
 //
 // This file is part of REXI-hub v2.
 //

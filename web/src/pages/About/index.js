@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 REXI-hub team
+Copyright (c) 2026 REXI-hub team
 
 This file is part of REXI-hub v2.
 
@@ -59,7 +59,7 @@ const About = () => {
             </Layout.Header>
             <Layout.Content>
               <p>{t('可在设置页面设置关于内容，支持 HTML & Markdown')}</p>
-              <p>REXI-hub v2 © 2025</p>
+              <p>REXI-hub v2 © 2026</p>
               <p>
                 {t('本项目根据MIT许可证授权，需在遵守Apache-2.0协议的前提下使用。')}
               </p>
