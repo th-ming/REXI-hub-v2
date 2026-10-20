@@ -122,7 +122,7 @@ const LogsTable = () => {
     {
       title: t('进度'),
       dataIndex: 'progress',
-      width: 50,
+      width: 100,
       render: (text, record, index) => {
         return (
           <div>

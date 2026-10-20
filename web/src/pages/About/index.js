@@ -59,10 +59,7 @@ const About = () => {
             </Layout.Header>
             <Layout.Content>
               <p>{t('可在设置页面设置关于内容，支持 HTML & Markdown')}</p>
-              {t('REXI-hub项目仓库地址：')}
-              <a href='https://github.com/rexi-hub-v2/rexi-hub-v2'>
-                https://github.com/rexi-hub-v2/rexi-hub-v2
-              </a>
+              <p>REXI-hub v2</p>
               <p>
                 {t('NewAPI © 2023 CalciumIon | 基于 One API v0.5.4 © 2023')}
                 {t('JustSong。')}

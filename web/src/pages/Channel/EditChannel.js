@@ -1996,20 +1996,6 @@ const updateModelsCallback = useCallback((newModels) => {
               >
                 {t('填入模板')}
               </Typography.Text>
-              <Typography.Text
-                style={{
-                  color: 'rgba(var(--semi-blue-5), 1)',
-                  userSelect: 'none',
-                  cursor: 'pointer',
-                }}
-                onClick={() => {
-                  window.open(
-                    'https://github.com/rexi-hub-v2/rexi-hub-v2/blob/main/docs/channel/other_setting.md',
-                  );
-                }}
-              >
-                {t('设置说明')}
-              </Typography.Text>
             </Space>
           </>
           <>

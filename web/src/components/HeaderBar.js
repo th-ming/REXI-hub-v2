@@ -113,7 +113,6 @@ const avatarStyle = {
   margin: '4px',
   cursor: 'pointer',
   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-  transition: 'all 0.3s ease',
 };
 
 // Tùy chỉnh kiểu menu dropdown
@@ -383,7 +382,12 @@ const HeaderBar = () => {
                         }}
                       >
                         <div style={{ ...logoStyle, cursor: 'pointer' }}>
-                          <img src={logo} alt='logo' style={{ height: '28px' }} />
+                          <img
+                            src={logo}
+                            alt='logo'
+                            className='rexi-glow-logo'
+                            style={{ height: '28px' }}
+                          />
                         </div>
                       </Link>
                     ),
@@ -501,8 +505,9 @@ const HeaderBar = () => {
                       }
                     >
                       <Avatar
-                        size='small'
+                        size={40}
                         color={stringToColor(userState.user.display_name || userState.user.username)}
+                        className='rexi-glow-avatar'
                         style={avatarStyle}
                       >
                         {(userState.user.display_name || userState.user.username)[0]}

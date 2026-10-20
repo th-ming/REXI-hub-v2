@@ -22,6 +22,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { API, showError, showSuccess, updateAPI } from '../helpers';
 import { UserContext } from '../context/User';
 import { setUserData } from '../helpers/data.js';
+import i18n from '../i18n/i18n';
 
 const OAuth2Callback = (props) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,14 +40,14 @@ const OAuth2Callback = (props) => {
     const { success, message, data } = res.data;
     if (success) {
       if (message === 'bind') {
-        showSuccess('Binding successful!');
+        showSuccess(i18n.t('Binding successful!'));
         navigate('/admin/settings');
       } else {
         userDispatch({ type: 'login', payload: data });
         localStorage.setItem('user', JSON.stringify(data));
         setUserData(data);
         updateAPI();
-        showSuccess('Login successful!');
+        showSuccess(i18n.t('Login successful!'));
         navigate(searchParams.get('returnTo') || '/app/tokens');
       }
     } else {

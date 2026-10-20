@@ -135,20 +135,13 @@ const Home = () => {
                       : 'unknown'}
                   </p>
                   <p>
-                    {t('源码')}：
-                    <a
-                      href='https://github.com/rexi-hub-v2/rexi-hub-v2'
-                      target='_blank'
-                      rel='noreferrer'
-                    >
-                      https://github.com/rexi-hub-v2/rexi-hub-v2
-                    </a>
+                    {t('源码')}：REXI-hub v2
                   </p>
                   
                   <p>
                     {t('协议')}：
                     <a
-                      href='https://www.apache.org/licenses/LICENSE-2.0'
+                      href='https://www.gnu.org/licenses/gpl-3.0.html'
                       target='_blank'
                       rel='noreferrer'
                     >

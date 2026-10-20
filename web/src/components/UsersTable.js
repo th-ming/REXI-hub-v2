@@ -82,7 +82,7 @@ const UsersTable = () => {
       render: (text, record, index) => {
         return (
           <div>
-            <Space spacing={1}>
+            <Space spacing={8} wrap>
               <Tooltip content={t('剩余额度')}>
                 <Tag color='white' size='large'>
                   {renderQuota(record.quota)}
@@ -109,7 +109,7 @@ const UsersTable = () => {
       render: (text, record, index) => {
         return (
           <div>
-            <Space spacing={1}>
+            <Space spacing={8} wrap>
               <Tooltip content={t('邀请人数')}>
                 <Tag color='white' size='large'>
                   {renderNumber(record.aff_count)}
@@ -162,7 +162,7 @@ const UsersTable = () => {
       title: '',
       dataIndex: 'operate',
       render: (text, record, index) => (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           {record.DeletedAt !== null ? (
             <></>
           ) : (
@@ -174,7 +174,7 @@ const UsersTable = () => {
                   manageUser(record.id, 'promote', record);
                 }}
               >
-                <Button theme='light' type='warning' style={{ marginRight: 1 }}>
+                <Button theme='light' type='warning'>
                   {t('提升')}
                 </Button>
               </Popconfirm>
@@ -188,7 +188,7 @@ const UsersTable = () => {
                 <Button
                   theme='light'
                   type='secondary'
-                  style={{ marginRight: 1 }}
+                 
                 >
                   {t('降级')}
                 </Button>
@@ -197,7 +197,7 @@ const UsersTable = () => {
                 <Button
                   theme='light'
                   type='warning'
-                  style={{ marginRight: 1 }}
+                 
                   onClick={async () => {
                     manageUser(record.id, 'disable', record);
                   }}
@@ -208,7 +208,7 @@ const UsersTable = () => {
                 <Button
                   theme='light'
                   type='secondary'
-                  style={{ marginRight: 1 }}
+                 
                   onClick={async () => {
                     manageUser(record.id, 'enable', record);
                   }}
@@ -220,7 +220,7 @@ const UsersTable = () => {
               <Button
                 theme='light'
                 type='tertiary'
-                style={{ marginRight: 1 }}
+               
                 onClick={() => {
                   setEditingUser(record);
                   setShowEditUser(true);
@@ -239,7 +239,7 @@ const UsersTable = () => {
                   });
                 }}
               >
-                <Button theme='light' type='danger' style={{ marginRight: 1 }}>
+                <Button theme='light' type='danger'>
                   {t('注销')}
                 </Button>
               </Popconfirm>
@@ -458,8 +458,8 @@ const UsersTable = () => {
         }}
         labelPosition='left'
       >
-        <div style={{ display: 'flex' }}>
-          <Space>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <Space wrap>
             <Tooltip
               content={t('支持搜索用户的 ID、用户名、显示名称和邮箱地址')}
             >

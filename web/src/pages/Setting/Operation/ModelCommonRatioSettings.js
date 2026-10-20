@@ -124,6 +124,11 @@ export default function ModelCommonRatioSettings(props) {
 
       const [promptRatios, completionRatios] = promptUrl ? await Promise.all(requests) : [null, await requests[0]];
 
+      if (!completionRatios || Object.keys(completionRatios).length === 0) {
+        showError(t('无法获取预设倍率数据（公共资产服务不可用），请稍后重试'));
+        return;
+      }
+
       const currentModelRatio = JSON.parse(props.options.ModelRatio || '{}');
       const currentCompletionRatio = JSON.parse(props.options.CompletionRatio || '{}');
 
@@ -196,6 +201,11 @@ export default function ModelCommonRatioSettings(props) {
       requests.push(fetch(completionUrl).then(res => res.json()).catch(() => ({})));
 
       const [promptRatios, completionRatios] = promptUrl ? await Promise.all(requests) : [null, await requests[0]];
+
+      if (!completionRatios || Object.keys(completionRatios).length === 0) {
+        showError(t('无法获取预设倍率数据（公共资产服务不可用），请稍后重试'));
+        return;
+      }
 
       const currentModelRatio = JSON.parse(props.options.ModelRatio || '{}');
       const currentCompletionRatio = JSON.parse(props.options.CompletionRatio || '{}');
@@ -526,14 +536,7 @@ export default function ModelCommonRatioSettings(props) {
           }}>
             <Text size='small' type='tertiary'>
               {t('由 REXI-hub Public Assets 提供支持，')} 
-              <a 
-                href='https://public-assets.rexi-hub-v2.org/terms' 
-                target='_blank'
-                rel='noopener noreferrer'
-                style={{ color: 'var(--semi-color-primary)', textDecoration: 'none' }}
-              >
-                {t('条款和条件')}
-              </a>
+              {t('条款和条件')}
               {t('适用。')}
             </Text>
           </div>
@@ -582,14 +585,7 @@ export default function ModelCommonRatioSettings(props) {
           }}>
             <Text size='small' type='tertiary'>
               {t('由 REXI-hub Public Assets 提供支持，')} 
-              <a 
-                href='https://public-assets.rexi-hub-v2.org/terms' 
-                target='_blank'
-                rel='noopener noreferrer'
-                style={{ color: 'var(--semi-color-primary)', textDecoration: 'none' }}
-              >
-                {t('条款和条件')}
-              </a>
+              {t('条款和条件')}
               {t('适用。')}
             </Text>
           </div>

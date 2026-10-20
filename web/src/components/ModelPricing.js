@@ -324,19 +324,23 @@ const ModelPricing = () => {
   const loadPricing = async () => {
     setLoading(true);
 
-    let url = '';
-    url = `/api/pricing`;
-    const res = await API.get(url);
-    const { success, message, data, group_ratio, usable_group } = res.data;
-    if (success) {
-      setGroupRatio(group_ratio);
-      setUsableGroup(usable_group);
-      setSelectedGroup(userState.user ? userState.user.group : 'default');
-      setModelsFormat(data, group_ratio);
-    } else {
-      showError(message);
+    try {
+      const res = await API.get(`/api/pricing`);
+      const { success, message, data, group_ratio, usable_group } = res.data;
+      if (success) {
+        setGroupRatio(group_ratio);
+        setUsableGroup(usable_group);
+        setSelectedGroup(userState.user ? userState.user.group : 'default');
+        setModelsFormat(data, group_ratio);
+      } else {
+        showError(message);
+      }
+    } catch (e) {
+      console.error('Failed to load pricing:', e);
+      showError(t('获取模型价格失败，请刷新重试'));
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const refresh = async () => {
@@ -393,10 +397,10 @@ const ModelPricing = () => {
           closeIcon='null'
         />
         <br />
-        <Space style={{ marginBottom: 16 }}>
+        <Space spacing={8} wrap style={{ marginBottom: 16 }}>
           <Input
             placeholder={t('模糊搜索模型名称')}
-            style={{ width: 200 }}
+            style={{ width: 240 }}
             onCompositionStart={handleCompositionStart}
             onCompositionEnd={handleCompositionEnd}
             onChange={handleChange}
@@ -405,7 +409,6 @@ const ModelPricing = () => {
           <Button
             theme='light'
             type='tertiary'
-            style={{ width: 150 }}
             onClick={() => {
               copyText(selectedRowKeys);
             }}
@@ -413,14 +416,14 @@ const ModelPricing = () => {
           >
             {t('复制选中模型')}
           </Button>
-          <Space style={{ marginLeft: 16, alignItems: 'center' }}>
+          <Space style={{ alignItems: 'center' }}>
             <span>{t('显示倍率')}:</span>
             <Switch
               checked={showRatio}
               onChange={setShowRatio}
             />
           </Space>
-          <Space style={{ marginLeft: 16, alignItems: 'center' }}>
+          <Space style={{ alignItems: 'center' }}>
             <span>{t('隐藏不可用模型')}:</span>
             <Switch
               checked={hideUnavailable}

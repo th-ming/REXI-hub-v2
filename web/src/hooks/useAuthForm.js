@@ -18,12 +18,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { UserContext } from '../context/User';
 import { API, showError, showInfo, showSuccess, updateAPI } from '../helpers';
 import { setUserData } from '../helpers/data.js';
 import { TELEGRAM_LOGIN_FIELDS, VALIDATION_MESSAGES } from '../utils/authConstants';
 
 export const useAuthForm = (initialInputs = {}) => {
+  const { t } = useTranslation();
   const [inputs, setInputs] = useState(initialInputs);
   const [searchParams] = useSearchParams();
   const [userState, userDispatch] = useContext(UserContext);
@@ -98,7 +100,7 @@ export const useAuthForm = (initialInputs = {}) => {
 
   const onSubmitWeChatVerificationCode = async (turnstileToken) => {
     if (status.turnstile_check && turnstileToken === '') {
-      showInfo(VALIDATION_MESSAGES.TURNSTILE_WAIT);
+      showInfo(t(VALIDATION_MESSAGES.TURNSTILE_WAIT));
       return;
     }
     const res = await API.get(
@@ -111,7 +113,7 @@ export const useAuthForm = (initialInputs = {}) => {
       setUserData(data);
       updateAPI();
       navigate(searchParams.get('returnTo') || '/');
-      showSuccess(VALIDATION_MESSAGES.LOGIN_SUCCESS);
+      showSuccess(t(VALIDATION_MESSAGES.LOGIN_SUCCESS));
       setShowWeChatLoginModal(false);
     } else {
       showError(message);
@@ -131,7 +133,7 @@ export const useAuthForm = (initialInputs = {}) => {
     if (success) {
       userDispatch({ type: 'login', payload: data });
       localStorage.setItem('user', JSON.stringify(data));
-      showSuccess(VALIDATION_MESSAGES.LOGIN_SUCCESS);
+      showSuccess(t(VALIDATION_MESSAGES.LOGIN_SUCCESS));
       setUserData(data);
       updateAPI();
       navigate(searchParams.get('returnTo') || '/');

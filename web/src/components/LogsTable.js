@@ -1425,7 +1425,7 @@ const LogsTable = () => {
       <Layout>
         <Header>
           <Spin spinning={loadingStat}>
-            <Space>
+            <Space wrap>
               <Tag
                 color='blue'
                 size='large'

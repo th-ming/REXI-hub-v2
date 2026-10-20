@@ -53,7 +53,7 @@ const MessageList = () => {
     {
       title: t('格式'),
       dataIndex: 'format',
-      width: 100,
+      width: 130,
       render: (text) => (
         <Tag color={text === 'html' ? 'blue' : 'green'} size='large'>
           {text?.toUpperCase()}
@@ -63,7 +63,7 @@ const MessageList = () => {
     {
       title: t('收件人数'),
       dataIndex: 'stats',
-      width: 100,
+      width: 150,
       render: (stats) => (
         <Tag color='white' size='large'>
           {stats?.total_recipients || 0}

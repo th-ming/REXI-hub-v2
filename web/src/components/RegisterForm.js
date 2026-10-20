@@ -20,6 +20,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API, showError, showInfo, showSuccess } from '../helpers';
 import { Button, Form } from '@douyinfe/semi-ui';
+import { IconEyeClosed, IconEyeOpened } from '@douyinfe/semi-icons';
 import Text from '@douyinfe/semi-ui/lib/es/typography/text';
 import { useTranslation } from 'react-i18next';
 import { VALIDATION_MESSAGES } from '../utils/authConstants';
@@ -36,6 +37,8 @@ const RegisterForm = () => {
   const { t } = useTranslation();
   const [showEmailVerification, setShowEmailVerification] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   // Use shared hooks
   const {
@@ -77,16 +80,16 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     if (password.length < 8) {
-      showInfo(VALIDATION_MESSAGES.PASSWORD_TOO_SHORT);
+      showInfo(t(VALIDATION_MESSAGES.PASSWORD_TOO_SHORT));
       return;
     }
     if (password !== password2) {
-      showInfo(VALIDATION_MESSAGES.PASSWORD_MISMATCH);
+      showInfo(t(VALIDATION_MESSAGES.PASSWORD_MISMATCH));
       return;
     }
     if (username && password) {
       if (!validateTurnstile()) {
-        showInfo(VALIDATION_MESSAGES.TURNSTILE_WAIT);
+        showInfo(t(VALIDATION_MESSAGES.TURNSTILE_WAIT));
         return;
       }
       setLoading(true);
@@ -111,7 +114,7 @@ const RegisterForm = () => {
       const { success, message } = res.data;
       if (success) {
         navigate('/login');
-        showSuccess(VALIDATION_MESSAGES.REGISTER_SUCCESS);
+        showSuccess(t(VALIDATION_MESSAGES.REGISTER_SUCCESS));
       } else {
         showError(message);
       }
@@ -122,7 +125,7 @@ const RegisterForm = () => {
   const sendVerificationCode = async () => {
     if (inputs.email === '') return;
     if (!validateTurnstile()) {
-      showInfo(VALIDATION_MESSAGES.TURNSTILE_WAIT);
+      showInfo(t(VALIDATION_MESSAGES.TURNSTILE_WAIT));
       return;
     }
     setLoading(true);
@@ -131,7 +134,7 @@ const RegisterForm = () => {
     );
     const { success, message } = res.data;
     if (success) {
-      showSuccess(VALIDATION_MESSAGES.VERIFICATION_CODE_SENT);
+      showSuccess(t(VALIDATION_MESSAGES.VERIFICATION_CODE_SENT));
     } else {
       showError(message);
     }
@@ -157,7 +160,15 @@ const RegisterForm = () => {
           label={t('密码')}
           placeholder={t('输入密码，最短 8 位，最长 20 位')}
           name='password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
+          suffix={
+            <span
+              onClick={() => setShowPassword((v) => !v)}
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+            >
+              {showPassword ? <IconEyeOpened /> : <IconEyeClosed />}
+            </span>
+          }
           onChange={(value) => handleChange('password', value)}
         />
         <Form.Input
@@ -165,7 +176,15 @@ const RegisterForm = () => {
           label={t('确认密码')}
           placeholder={t('确认密码')}
           name='password2'
-          type='password'
+          type={showPassword2 ? 'text' : 'password'}
+          suffix={
+            <span
+              onClick={() => setShowPassword2((v) => !v)}
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+            >
+              {showPassword2 ? <IconEyeOpened /> : <IconEyeClosed />}
+            </span>
+          }
           onChange={(value) => handleChange('password2', value)}
         />
         {showEmailVerification && (

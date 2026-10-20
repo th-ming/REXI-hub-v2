@@ -255,16 +255,16 @@ const RedemptionsTable = () => {
       title: '',
       dataIndex: 'operate',
       render: (text, record, index) => (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           <Popover content={record.key} style={{ padding: 20 }} position='top'>
-            <Button theme='light' type='tertiary' style={{ marginRight: 1 }}>
+            <Button theme='light' type='tertiary'>
               {t('查看')}
             </Button>
           </Popover>
           <Button
             theme='light'
             type='secondary'
-            style={{ marginRight: 1 }}
+           
             onClick={async (text) => {
               await copyText(record.key);
             }}
@@ -282,7 +282,7 @@ const RedemptionsTable = () => {
               });
             }}
           >
-            <Button theme='light' type='danger' style={{ marginRight: 1 }}>
+            <Button theme='light' type='danger'>
               {t('删除')}
             </Button>
           </Popconfirm>
@@ -290,7 +290,7 @@ const RedemptionsTable = () => {
             <Button
               theme='light'
               type='warning'
-              style={{ marginRight: 1 }}
+             
               onClick={async () => {
                 manageRedemption(record.id, 'disable', record);
               }}
@@ -301,7 +301,7 @@ const RedemptionsTable = () => {
             <Button
               theme='light'
               type='secondary'
-              style={{ marginRight: 1 }}
+             
               onClick={async () => {
                 manageRedemption(record.id, 'enable', record);
               }}
@@ -313,7 +313,7 @@ const RedemptionsTable = () => {
           <Button
             theme='light'
             type='tertiary'
-            style={{ marginRight: 1 }}
+           
             onClick={() => {
               setEditingRedemption(record);
               setShowEdit(true);
@@ -593,11 +593,10 @@ const RedemptionsTable = () => {
         />
       </Form>
       <Divider style={{ margin: '5px 0 15px 0' }} />
-      <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
         <Button
           theme='light'
           type='primary'
-          style={{ marginRight: 8 }}
           onClick={() => {
             setEditingRedemption({
               id: undefined,
@@ -610,7 +609,6 @@ const RedemptionsTable = () => {
         <Button
           label={t('复制所选兑换码')}
           type='warning'
-          style={{ marginRight: 8 }}
           onClick={async () => {
             if (selectedKeys.length === 0) {
               showError(t('请至少选择一个兑换码！'));
@@ -628,14 +626,12 @@ const RedemptionsTable = () => {
         </Button>
         <Button
           type='warning'
-          style={{ marginRight: 8 }}
           onClick={disableSelectedRedemptions}
         >
           {t('禁用所选兑换码')}
         </Button>
         <Button
           type='danger'
-          style={{ marginRight: 8 }}
           onClick={() => setShowBatchDeleteByName(true)}
         >
           {t('按名称批量删除兑换码')}

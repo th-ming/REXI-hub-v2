@@ -269,6 +269,14 @@ export default function ModelRatioNotSetEditor(props) {
         fetch(completionUrl).then((res) => (res.ok ? res.json() : {})).catch(() => ({})),
       ]);
 
+      const bothEmpty =
+        (!promptRatios || Object.keys(promptRatios).length === 0) &&
+        (!completionRatios || Object.keys(completionRatios).length === 0);
+      if (bothEmpty) {
+        showError(t('填入官网倍率失败，请稍后重试'));
+        return;
+      }
+
       let filledCount = 0;
 
       setModels((prev) =>

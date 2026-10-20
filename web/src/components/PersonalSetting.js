@@ -1269,7 +1269,9 @@ Example:
               </div>
               <div style={{ marginTop: 20 }}>
                 <Input
-                  placeholder={`Enter your username ${userState?.user?.username} to confirm deletion`}
+                  placeholder={i18n.t('Nhập tên tài khoản {{username}} để xác nhận xoá', {
+                    username: userState?.user?.username,
+                  })}
                   name='self_account_deletion_confirmation'
                   value={inputs.self_account_deletion_confirmation}
                   onChange={(value) =>

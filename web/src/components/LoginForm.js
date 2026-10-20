@@ -20,6 +20,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API, showError, showInfo, showSuccess, updateAPI } from '../helpers';
 import { Button, Form, Modal } from '@douyinfe/semi-ui';
+import { IconEyeClosed, IconEyeOpened } from '@douyinfe/semi-icons';
 import Text from '@douyinfe/semi-ui/lib/es/typography/text';
 import { setUserData } from '../helpers/data.js';
 import { useTranslation } from 'react-i18next';
@@ -36,6 +37,7 @@ import TurnstileWrapper from './shared/TurnstileWrapper';
 const LoginForm = () => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // Use shared hooks
   const {
@@ -81,7 +83,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     if (!validateTurnstile()) {
-      showInfo(VALIDATION_MESSAGES.TURNSTILE_WAIT);
+      showInfo(t(VALIDATION_MESSAGES.TURNSTILE_WAIT));
       return;
     }
     
@@ -99,11 +101,11 @@ const LoginForm = () => {
         userDispatch({ type: 'login', payload: data });
         setUserData(data);
         updateAPI();
-        showSuccess(VALIDATION_MESSAGES.LOGIN_SUCCESS);
+        showSuccess(t(VALIDATION_MESSAGES.LOGIN_SUCCESS));
         if (username === 'root' && password === '123456') {
           Modal.error({
-            title: VALIDATION_MESSAGES.DEFAULT_PASSWORD_WARNING,
-            content: VALIDATION_MESSAGES.CHANGE_DEFAULT_PASSWORD,
+            title: t(VALIDATION_MESSAGES.DEFAULT_PASSWORD_WARNING),
+            content: t(VALIDATION_MESSAGES.CHANGE_DEFAULT_PASSWORD),
             centered: true,
           });
         }
@@ -112,7 +114,7 @@ const LoginForm = () => {
         showError(message);
       }
     } else {
-      showError(VALIDATION_MESSAGES.MISSING_CREDENTIALS);
+      showError(t(VALIDATION_MESSAGES.MISSING_CREDENTIALS));
     }
   };
 
@@ -135,7 +137,15 @@ const LoginForm = () => {
           label={t('密码')}
           placeholder={t('密码')}
           name='password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
+          suffix={
+            <span
+              onClick={() => setShowPassword((v) => !v)}
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+            >
+              {showPassword ? <IconEyeOpened /> : <IconEyeClosed />}
+            </span>
+          }
           onChange={(value) => handleChange('password', value)}
         />
 

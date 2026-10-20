@@ -702,7 +702,7 @@ const ChannelsTable = () => {
         if (record.children === undefined) {
           return (
             <div>
-              <Space spacing={1}>
+              <Space spacing={8} wrap>
                 <Tooltip content={t('已用额度')}>
                   <Tag color='white' type='ghost' size='large'>
                     {renderQuota(record.used_quota)}
@@ -851,9 +851,8 @@ const ChannelsTable = () => {
       render: (text, record, index) => {
         if (record.children === undefined) {
           return (
-            <div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               <SplitButtonGroup
-                style={{ marginRight: 1 }}
                 aria-label={t('测试单个渠道操作项目组')}
               >
                 <Button
@@ -885,7 +884,7 @@ const ChannelsTable = () => {
                   });
                 }}
               >
-                <Button theme='light' type='danger' style={{ marginRight: 1 }}>
+                <Button theme='light' type='danger'>
                   {t('删除')}
                 </Button>
               </Popconfirm>
@@ -893,7 +892,7 @@ const ChannelsTable = () => {
                 <Button
                   theme='light'
                   type='warning'
-                  style={{ marginRight: 1 }}
+                 
                   onClick={async () => {
                     manageChannel(record.id, 'disable', record);
                   }}
@@ -904,7 +903,7 @@ const ChannelsTable = () => {
                 <Button
                   theme='light'
                   type='secondary'
-                  style={{ marginRight: 1 }}
+                 
                   onClick={async () => {
                     manageChannel(record.id, 'enable', record);
                   }}
@@ -915,7 +914,7 @@ const ChannelsTable = () => {
               <Button
                 theme='light'
                 type='tertiary'
-                style={{ marginRight: 1 }}
+               
                 onClick={() => {
                   setEditingChannel(record);
                   setShowEdit(true);
@@ -932,7 +931,7 @@ const ChannelsTable = () => {
                   copySelectedChannel(record);
                 }}
               >
-                <Button theme='light' type='primary' style={{ marginRight: 1 }}>
+                <Button theme='light' type='primary'>
                   {t('复制')}
                 </Button>
               </Popconfirm>
@@ -940,11 +939,11 @@ const ChannelsTable = () => {
           );
         } else {
           return (
-            <>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               <Button
                 theme='light'
                 type='secondary'
-                style={{ marginRight: 1 }}
+               
                 onClick={async () => {
                   manageTag(record.key, 'enable');
                 }}
@@ -954,7 +953,7 @@ const ChannelsTable = () => {
               <Button
                 theme='light'
                 type='warning'
-                style={{ marginRight: 1 }}
+               
                 onClick={async () => {
                   manageTag(record.key, 'disable');
                 }}
@@ -964,7 +963,7 @@ const ChannelsTable = () => {
               <Button
                 theme='light'
                 type='tertiary'
-                style={{ marginRight: 1 }}
+               
                 onClick={() => {
                   setShowEditTag(true);
                   setEditingTag(record.key);
@@ -972,7 +971,7 @@ const ChannelsTable = () => {
               >
                 {t('编辑')}
               </Button>
-            </>
+            </div>
           );
         }
       },
@@ -2184,8 +2183,8 @@ const ChannelsTable = () => {
         }}
         labelPosition='left'
       >
-        <div style={{ display: 'flex' }}>
-          <Space>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <Space wrap>
             <Form.Input
               field='search_keyword'
               label={t('搜索渠道关键词')}
@@ -2294,18 +2293,15 @@ const ChannelsTable = () => {
         style={{
           display: 'flex',
           flexDirection: isMobile() ? 'column' : 'row',
-          marginTop: isMobile() ? 0 : -45,
-          zIndex: 999,
-          pointerEvents: 'none',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: 8,
+          marginTop: 12,
         }}
       >
         <Space
           style={{
-            pointerEvents: 'auto',
-            marginTop: isMobile() ? 0 : 45,
-            marginBottom: isMobile() ? 16 : 0,
-            display: 'flex',
-            flexWrap: isMobile() ? 'wrap' : 'nowrap',
+            flexWrap: 'wrap',
             gap: '8px',
           }}
         >
@@ -2314,7 +2310,6 @@ const ChannelsTable = () => {
               display: 'flex',
               alignItems: 'center',
               marginRight: 16,
-              flexWrap: 'nowrap',
             }}
           >
             <Typography.Text strong style={{ marginRight: 8 }}>

@@ -304,14 +304,6 @@ const OtherSetting = () => {
     getOptions();
   }, []);
 
-  // Function to open GitHub release page
-  const openGitHubRelease = () => {
-    window.open(
-      `https://github.com/rexi-hub-v2/rexi-hub-v2/releases/tag/${updateData.tag_name}`,
-      '_blank',
-    );
-  };
-
   const getStartTimeString = () => {
     const timestamp = statusState?.status?.start_time;
     return statusState.status ? timestamp2string(timestamp) : '';
@@ -531,18 +523,7 @@ const OtherSetting = () => {
         title={t('新版本') + '：' + updateData.tag_name}
         visible={showUpdateModal}
         onCancel={() => setShowUpdateModal(false)}
-        footer={[
-          <Button
-            key='details'
-            type='primary'
-            onClick={() => {
-              setShowUpdateModal(false);
-              openGitHubRelease();
-            }}
-          >
-            {t('详情')}
-          </Button>,
-        ]}
+        footer={null}
       >
         <div dangerouslySetInnerHTML={{ __html: updateData.content }}></div>
       </Modal>

@@ -197,20 +197,20 @@ const TokensTable = () => {
           }
         }
         return (
-          <div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Popover
               content={'sk-' + record.key}
               style={{ padding: 20 }}
               position='top'
             >
-              <Button theme='light' type='tertiary' style={{ marginRight: 1 }}>
+              <Button theme='light' type='tertiary'>
                 {t('查看')}
               </Button>
             </Popover>
             <Button
               theme='light'
               type='secondary'
-              style={{ marginRight: 1 }}
+             
               onClick={async (text) => {
                 await copyText('sk-' + record.key);
               }}
@@ -219,7 +219,7 @@ const TokensTable = () => {
             </Button>
             {chatsArray.length > 0 && (
               <SplitButtonGroup
-                style={{ marginRight: 1 }}
+               
                 aria-label={t('项目操作按钮组')}
               >
                 <Button
@@ -262,7 +262,7 @@ const TokensTable = () => {
                 });
               }}
             >
-              <Button theme='light' type='danger' style={{ marginRight: 1 }}>
+              <Button theme='light' type='danger'>
                 {t('删除')}
               </Button>
             </Popconfirm>
@@ -270,7 +270,7 @@ const TokensTable = () => {
               <Button
                 theme='light'
                 type='warning'
-                style={{ marginRight: 1 }}
+               
                 onClick={async () => {
                   manageToken(record.id, 'disable', record);
                 }}
@@ -281,7 +281,7 @@ const TokensTable = () => {
               <Button
                 theme='light'
                 type='secondary'
-                style={{ marginRight: 1 }}
+               
                 onClick={async () => {
                   manageToken(record.id, 'enable', record);
                 }}
@@ -292,7 +292,7 @@ const TokensTable = () => {
             <Button
               theme='light'
               type='tertiary'
-              style={{ marginRight: 1 }}
+             
               onClick={() => {
                 setEditingToken(record);
                 setShowEdit(true);
@@ -562,11 +562,10 @@ const TokensTable = () => {
         </Button>
       </Form>
       <Divider style={{ margin: '15px 0' }} />
-      <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
         <Button
           theme='light'
           type='primary'
-          style={{ marginRight: 8 }}
           onClick={() => {
             setEditingToken({
               id: undefined,

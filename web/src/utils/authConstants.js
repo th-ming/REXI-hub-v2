@@ -1,4 +1,3 @@
-import i18n from '../i18n/i18n';
 /*
 Copyright (c) 2025 Tethys Plex
 
@@ -70,17 +69,20 @@ export const FORM_STYLES = {
   },
 };
 
-// Common validation messages
+// Common validation messages (raw keys — wrap with t() at usage)
 export const VALIDATION_MESSAGES = {
-  TURNSTILE_WAIT: 'Please retry in a few seconds, Turnstile is checking your browser!',
+  TURNSTILE_WAIT:
+    'Please retry in a few seconds, Turnstile is checking your browser!',
   LOGIN_SUCCESS: 'Login successful!',
   REGISTER_SUCCESS: 'Registration successful!',
   PASSWORD_TOO_SHORT: 'Password must be at least 8 characters!',
-  PASSWORD_MISMATCH: i18n.t('The two passwords do not match'),
+  PASSWORD_MISMATCH: 'The two passwords do not match',
   MISSING_CREDENTIALS: 'Please enter your username and password!',
-  VERIFICATION_CODE_SENT: 'Verification code sent, please check your email!',
+  VERIFICATION_CODE_SENT:
+    'Verification code sent, please check your email!',
   DEFAULT_PASSWORD_WARNING: 'You are using the default password!',
-  CHANGE_DEFAULT_PASSWORD: 'Please change the default password immediately!',
+  CHANGE_DEFAULT_PASSWORD:
+    'Please change the default password immediately!',
   SESSION_EXPIRED: 'Not logged in or session expired, please log in again',
 };
 

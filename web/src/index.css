@@ -57,7 +57,9 @@ body {
   padding-right: 30px;
 }
 
-.semi-navigation-item {
+/* Không áp cho semi-navigation-sub-wrap: nó cũng mang class semi-navigation-item,
+   nhưng phải giữ display:block để submenu xếp DƯỚI hàng cha thay vì bị bóp ngang */
+.semi-navigation-item:not(.semi-navigation-sub-wrap) {
   display: flex;
   align-items: center; /* Căn giữa theo chiều dọc */
 }
@@ -345,46 +347,92 @@ code {
   height: 100% !important;
 }
 
+/* ÉP sidebar vừa viewport: giữ fixed (app dựa overlay) nhưng bottom:0 → cao đúng phần dưới topnav,
+   list cuộn được thay vì tràn bị cắt, footer luôn thấy */
+@media only screen and (min-width: 768px) {
+  .semi-layout-sider:has(.custom-sidebar-nav) {
+    position: fixed !important;
+    bottom: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+}
+.semi-layout-sider:has(.custom-sidebar-nav) > .semi-layout-sider-children {
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.custom-sidebar-nav .semi-navigation-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+.custom-sidebar-nav .semi-navigation-header-list-outer {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Tiêu đề nhóm (BẢNG ĐIỀU KHIỂN / TRUNG TÂM CÁ NHÂN): không xuống dòng — 1 dòng + ellipsis */
+.custom-sidebar-nav .semi-typography {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Co nhẹ item để mở mục Trò chuyện (5 link chat) không tràn khỏi sidebar */
+.custom-sidebar-nav .semi-navigation-item {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
 /* Đảm bảo danh sách điều hướng cuộn được mà không ảnh hưởng footer */
 .custom-sidebar-nav .semi-navigation-list-wrapper {
   flex: 1 !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
   -webkit-overflow-scrolling: touch !important; /* Tối ưu cho iOS */
-  padding-bottom: 8px !important; /* Chừa một khoảng trống ở dưới cùng */
+  padding-top: 2px !important;
+  padding-bottom: 0 !important;
   min-height: 0 !important; /* Đảm bảo phần tử con flexbox có thể co lại */
-  max-height: calc(100vh - 120px) !important; /* Giới hạn chiều cao tối đa, chừa chỗ cho footer */
 }
 
-/* Kiểu thanh cuộn theo phong cách Semi Design */
+/* Kiểu thanh cuộn theo phong cách Semi Design - làm RÕ để không còn "bị khuất" */
 .custom-sidebar-nav .semi-navigation-list-wrapper::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .custom-sidebar-nav .semi-navigation-list-wrapper::-webkit-scrollbar-track {
   background: transparent;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .custom-sidebar-nav .semi-navigation-list-wrapper::-webkit-scrollbar-thumb {
-  background: var(--semi-color-fill-2);
-  border-radius: 3px;
+  background: rgba(128, 128, 128, 0.5);
+  border-radius: 4px;
   transition: background-color 0.3s ease;
 }
 
 .custom-sidebar-nav .semi-navigation-list-wrapper::-webkit-scrollbar-thumb:hover {
-  background: var(--semi-color-fill-1);
+  background: rgba(255, 176, 0, 0.75);
 }
 
-/* Kiểu thanh cuộn */
+/* Kiểu thanh cuộn (chỉ Firefox — Chromium dùng ::-webkit-scrollbar bên trên) */
 .custom-sidebar-nav .semi-navigation-list-wrapper {
-  scrollbar-width: thin;
-  scrollbar-color: var(--semi-color-fill-2) transparent;
+  scrollbar-color: rgba(128, 128, 128, 0.5) transparent;
 }
 
 /* Đảm bảo cuộn được khi nội dung điều hướng vượt chiều cao container */
 .custom-sidebar-nav .semi-navigation-list {
-  padding-bottom: 8px !important;
+  padding-bottom: 0 !important;
 }
 
 /* Cố định vị trí nút dưới cùng của thanh bên */
@@ -396,11 +444,20 @@ code {
   z-index: 10 !important;
   flex-shrink: 0 !important;
   margin-top: auto !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 /* Kiểu mục con của menu trò chuyện */
+.custom-sidebar-nav .semi-navigation-sub > a {
+  margin-bottom: 2px !important;
+}
+
 .custom-sidebar-nav .semi-navigation-sub .semi-navigation-item {
   padding-left: 12px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  margin-top: 1px !important;
 }
 
 .custom-sidebar-nav .semi-navigation-sub .semi-navigation-item-text {
@@ -429,3 +486,93 @@ code {
 /*  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08) !important;*/
 /*  min-height: 100%;*/
 /*}*/
+
+/* ============================================================
+   REXI-hub: logo & avatar phát sáng kiểu REXI-hub v1 (amber glow)
+   Công thức gốc: drop-shadow(0 0 3px .85) + drop-shadow(0 0 10px .4)
+   ============================================================ */
+
+@keyframes rexi-glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 6px rgba(255, 176, 0, 0.55),
+      0 0 14px rgba(255, 176, 0, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 10px rgba(255, 176, 0, 0.9),
+      0 0 24px rgba(255, 176, 0, 0.45);
+  }
+}
+
+@keyframes rexi-glow-logo-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(255, 176, 0, 0.85))
+      drop-shadow(0 0 10px rgba(255, 176, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(255, 176, 0, 1))
+      drop-shadow(0 0 18px rgba(255, 176, 0, 0.6));
+  }
+}
+
+/* Logo mèo trên thanh header */
+.rexi-glow-logo {
+  animation: rexi-glow-logo-pulse 2.6s ease-in-out infinite;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.35s ease;
+  will-change: transform;
+}
+
+/* Di chuột vào logo mèo: phồng nảy + glow đậm */
+.rexi-glow-logo:hover {
+  transform: scale(1.28);
+  filter: brightness(1.08)
+    drop-shadow(0 0 10px rgba(255, 176, 0, 0.9))
+    drop-shadow(0 0 26px rgba(255, 176, 0, 0.55));
+  animation-play-state: paused;
+}
+
+/* Avatar tròn (Semi Avatar) trên thanh header */
+.rexi-glow-avatar {
+  animation: rexi-glow-pulse 2.6s ease-in-out infinite;
+  border: 1px solid rgba(255, 176, 0, 0.5);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.35s ease;
+  will-change: transform;
+}
+
+/* Di chuột vào avatar: phồng lên nảy + glow đậm hơn */
+.rexi-glow-avatar:hover {
+  transform: scale(1.22);
+  filter: brightness(1.08)
+    drop-shadow(0 0 10px rgba(255, 176, 0, 0.85))
+    drop-shadow(0 0 24px rgba(255, 176, 0, 0.5));
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rexi-glow-logo {
+    filter: drop-shadow(0 0 3px rgba(255, 176, 0, 0.85))
+      drop-shadow(0 0 10px rgba(255, 176, 0, 0.4));
+    animation: none;
+  }
+  .rexi-glow-avatar {
+    box-shadow:
+      0 0 6px rgba(255, 176, 0, 0.55),
+      0 0 14px rgba(255, 176, 0, 0.25);
+    animation: none;
+  }
+  .rexi-glow-avatar:hover {
+    transform: none;
+    filter: none;
+  }
+  .rexi-glow-logo:hover {
+    transform: none;
+    filter: none;
+  }
+}
